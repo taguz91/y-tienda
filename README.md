@@ -5,16 +5,16 @@ Ejemplo de proyecto rest.
 Configuramos el proyecto en .env 
 
 ### Modelos
-- Tienda 
-- Producto 
-- Ventas 
+- Tiendas
+- Productos 
+- Ventas
 
 ### Tablas
 
 Crearemos las tablas para nuestra base de datos, en laravel los conoceremos como migrations.
 
 ```bash 
-$ php artisan make migration create_<name>_table
+$ php artisan make:migration create_<name>_table
 ```
 
 **Tienda**
@@ -41,6 +41,12 @@ Atributo:
 - fecha
 - productos 
 - total 
+
+A todas las tablas les agregamos softDelete que nos ayuda a manejar el borrado logico. 
+
+```php
+$table->softDeletes();
+```
 
 Migramos todas las tablas a la base de datos. 
 
