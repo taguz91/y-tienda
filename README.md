@@ -1,0 +1,84 @@
+# Tienda - Lección Uno 
+
+Ejemplo de proyecto rest. 
+
+Configuramos el proyecto en .env 
+
+### Modelos
+- Tienda 
+- Producto 
+- Ventas 
+
+### Tablas
+
+Crearemos las tablas para nuestra base de datos, en laravel los conoceremos como migrations.
+
+```bash 
+$ php artisan make migration create_<name>_table
+```
+
+**Tienda**
+
+Atributos: 
+- id
+- nombre 
+- direccion
+
+**Producto**
+
+Atributos:
+- id
+- id_tienda
+- nombre
+- precio
+- stock
+
+**Ventas**
+
+Atributo: 
+- id
+- id_tienda
+- fecha
+- productos 
+- total 
+
+Migramos todas las tablas a la base de datos. 
+
+```bash
+$ php artisan migrate
+```
+
+### Seeders 
+Crearemos seeders, para tener datos de prueba en nuestra base de datos. 
+
+```bash
+$ php artisan make:seed <Name>Seeder
+```
+
+### Modelos 
+Creamos nuestros modelos.
+
+```bash
+$ php artisan make:model Models/<Nombre>
+```
+
+- Agregaremos SoftDeletes a los modelos para usar borrados logicos. 
+- Agregaremos la propiedad ```$fillable```, que son los valores que pueden ser llenados desde una petición.
+- Creamos todas las relaciones.
+
+### Controladores
+Creamos los controladores de tipo rest.
+
+```bash
+$ php artisan make:controller api/<version>/<Nombre>Controller --api
+```
+
+### Request 
+Creamos request, que seran los encargados de validar las peticiones que recibiremos en nuestra api. 
+
+```bash
+$ php php artisan make:request <Nombre><Metodo>Request
+```
+
+### Validaciones 
+Crearemos un middleware para validaciones. 
