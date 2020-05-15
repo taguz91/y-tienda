@@ -85,6 +85,9 @@ Creamos los controladores de tipo rest.
 $ php artisan make:controller api/<version>/<Nombre>Controller --api
 ```
 
+### Rutas 
+Agregamos las rutas.
+
 ### Request 
 Creamos request, que seran los encargados de validar las peticiones que recibiremos en nuestra api. 
 

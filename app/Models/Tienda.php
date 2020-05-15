@@ -17,11 +17,11 @@ class Tienda extends Model
     ];
 
     function productos() {
-        return $this->hasMany('App\Models\Producto', 'id_producto');
+        return $this->hasMany('App\Models\Producto', 'id_tienda');
     }
 
     function ventas() {
-        return $this->hasMany('App\Models\Venta', 'id_venta');
+        return $this->hasMany('App\Models\Venta', 'id_tienda');
     }
     
 }
