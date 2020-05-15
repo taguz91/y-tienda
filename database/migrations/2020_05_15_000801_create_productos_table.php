@@ -18,7 +18,7 @@ class CreateProductosTable extends Migration
             $table->bigInteger('id_tienda');
             $table->string('nombre', 100);
             $table->double('precio', 5, 2);
-            $table->integer('stock');
+            $table->integer('stock')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

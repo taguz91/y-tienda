@@ -15,7 +15,7 @@ class CreateTiendasTable extends Migration
     {
         Schema::create('tiendas', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 100);
+            $table->string('nombre', 100)->unique();
             $table->string('direccion', 150);
             $table->timestamps();
             $table->softDeletes();

@@ -38,7 +38,6 @@ Atributos:
 Atributo: 
 - id
 - id_tienda
-- fecha
 - productos 
 - total 
 
@@ -54,13 +53,6 @@ Migramos todas las tablas a la base de datos.
 $ php artisan migrate
 ```
 
-### Seeders 
-Crearemos seeders, para tener datos de prueba en nuestra base de datos. 
-
-```bash
-$ php artisan make:seed <Name>Seeder
-```
-
 ### Modelos 
 Creamos nuestros modelos.
 
@@ -71,6 +63,13 @@ $ php artisan make:model Models/<Nombre>
 - Agregaremos SoftDeletes a los modelos para usar borrados logicos. 
 - Agregaremos la propiedad ```$fillable```, que son los valores que pueden ser llenados desde una petición.
 - Creamos todas las relaciones.
+
+### Seeders 
+Crearemos seeders, para tener datos de prueba en nuestra base de datos. 
+
+```bash
+$ php artisan make:seed <Name>Seeder
+```
 
 ### Controladores
 Creamos los controladores de tipo rest.
