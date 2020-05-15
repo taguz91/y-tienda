@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\VentaCreateRequest;
 use App\Models\Venta;
 use Illuminate\Http\Request;
 
@@ -30,9 +31,10 @@ class VentaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VentaCreateRequest $request)
     {
-        //
+        $venta = new Venta($request->all());
+        return $venta->save();
     }
 
     /**
@@ -53,9 +55,10 @@ class VentaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(VentaCreateRequest $request, $id)
     {
-        //
+        $venta = Venta::findOrFail($id);
+        return $venta->update($request->all());
     }
 
     /**

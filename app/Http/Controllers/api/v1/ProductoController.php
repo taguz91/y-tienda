@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductoCreateRequest;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 
@@ -24,9 +25,10 @@ class ProductoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductoCreateRequest $request)
     {
-        //
+        $producto = new Producto($request->all());
+        return $producto->save();
     }
 
     /**
@@ -47,9 +49,10 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductoCreateRequest $request, $id)
     {
-        //
+        $producto = Producto::findOrFail($id);
+        return $producto->update($request->all());
     }
 
     /**

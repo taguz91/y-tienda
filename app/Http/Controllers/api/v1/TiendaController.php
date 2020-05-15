@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TiendaCreateRequest;
 use App\Models\Tienda;
 use Illuminate\Http\Request;
 
@@ -25,9 +26,10 @@ class TiendaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TiendaCreateRequest $request)
     {
-        //
+        $tienda = new Tienda($request->all());
+        return $tienda->save();
     }
 
     /**
@@ -48,9 +50,10 @@ class TiendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TiendaCreateRequest $request, $id)
     {
-        //
+        $tienda = Tienda::findOrFail($id);
+        return $tienda->update($request->all());
     }
 
     /**
