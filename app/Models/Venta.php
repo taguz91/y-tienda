@@ -9,7 +9,7 @@ class Venta extends Model
 {
     use SoftDeletes; 
 
-    protected $table = 'Ventas';
+    protected $table = 'ventas';
 
     protected $fillable = [
         'id_tienda',

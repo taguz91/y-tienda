@@ -64,11 +64,18 @@ $ php artisan make:model Models/<Nombre>
 - Agregaremos la propiedad ```$fillable```, que son los valores que pueden ser llenados desde una petición.
 - Creamos todas las relaciones.
 
-### Seeders 
-Crearemos seeders, para tener datos de prueba en nuestra base de datos. 
+### Factories
+Crearemos factories, para tener datos de prueba en nuestra base de datos. 
 
 ```bash
-$ php artisan make:seed <Name>Seeder
+$ php artisan make:factory <Name>Factory
+```
+
+### Seeders 
+Agregamos los factories a nuestro DatabaseSeeder. 
+
+```
+$ composer dump-autoload
 ```
 
 ### Controladores
