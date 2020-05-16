@@ -34,7 +34,7 @@ class VentaController extends Controller
     public function store(VentaCreateRequest $request)
     {
         $venta = new Venta($request->all());
-        return $venta->save();
+        return $this->saveObject($venta);
     }
 
     /**
@@ -45,7 +45,8 @@ class VentaController extends Controller
      */
     public function show($id)
     {
-        //
+        $venta = Venta::findOrFail($id);
+        return $this->showObject($venta);
     }
 
     /**
@@ -69,6 +70,7 @@ class VentaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $venta = Venta::findOrFail($id);
+        return $this->deleteObject($venta);
     }
 }

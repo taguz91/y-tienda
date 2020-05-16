@@ -29,7 +29,7 @@ class TiendaController extends Controller
     public function store(TiendaCreateRequest $request)
     {
         $tienda = new Tienda($request->all());
-        return $tienda->save();
+        return $this->saveObject($tienda);
     }
 
     /**
@@ -40,7 +40,8 @@ class TiendaController extends Controller
      */
     public function show($id)
     {
-        //
+        $tienda = Tienda::findOrFail($id);
+        return $this->showResponse($tienda);
     }
 
     /**
@@ -53,7 +54,7 @@ class TiendaController extends Controller
     public function update(TiendaCreateRequest $request, $id)
     {
         $tienda = Tienda::findOrFail($id);
-        return $tienda->update($request->all());
+        return $this->updateObject($tienda, $request);
     }
 
     /**
@@ -64,6 +65,7 @@ class TiendaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tienda = Tienda::findOrFail($id);
+        return $this->deleteObject($tienda);
     }
 }

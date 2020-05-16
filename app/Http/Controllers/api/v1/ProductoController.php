@@ -28,7 +28,7 @@ class ProductoController extends Controller
     public function store(ProductoCreateRequest $request)
     {
         $producto = new Producto($request->all());
-        return $producto->save();
+        return $this->saveObject($producto);
     }
 
     /**
@@ -39,7 +39,8 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-        //
+        $producto = Producto::findOrFail($id);
+        return $this->showObject($producto);
     }
 
     /**
@@ -52,7 +53,7 @@ class ProductoController extends Controller
     public function update(ProductoCreateRequest $request, $id)
     {
         $producto = Producto::findOrFail($id);
-        return $producto->update($request->all());
+        return $this->updateObject($producto, $request);
     }
 
     /**
@@ -63,6 +64,7 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $producto = Producto::findOrFail($id);
+        return $this->deleteObject($producto);
     }
 }
